@@ -1,3 +1,5 @@
+#!/bin/sh
+
 source config
 tasks_file="files/replication-tasks.csv"
 
