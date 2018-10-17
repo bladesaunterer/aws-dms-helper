@@ -10,8 +10,8 @@ tasks_file="files/replication-tasks.csv"
         source_arn=`aws dms describe-endpoints --filters Name="endpoint-id",Values=${source_endpoint_id} | grep "EndpointArn" | cut -d: -f2- | cut -d \" -f2` 
         target_arn=`aws dms describe-endpoints --filters Name="endpoint-id",Values=${target_endpoint_id} | grep "EndpointArn" | cut -d: -f2- | cut -d \" -f2` 
 
-        echo "${task_id}: ${source_arn}"
-        echo "${task_id}: ${target_arn}"
+        echo "${source_endpoint_id}: ${source_arn}"
+        echo "${target_endpoint_id}: ${target_arn}"
 
         aws dms create-replication-task \
             --replication-task-identifier $task_id \
